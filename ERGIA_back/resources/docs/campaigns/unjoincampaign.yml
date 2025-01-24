@@ -1,0 +1,51 @@
+tags:
+  - "Campagnes"
+parameters:
+  - in: "body"
+    name: "body"
+    description: "Retire un utilisateur annotateur d'une campagne"
+    required: true
+    schema:
+      $ref: "#/definitions/RemoveUserCampaignRequest"
+definitions:
+  RemoveUserCampaign:
+    type: "object"
+    properties:
+      campaign_id:
+        type: "integer"
+        example: 1
+      user_id:
+        type: "integer"
+        example: 1
+  RemoveUserCampaignResponse:
+    type: "object"
+    properties:
+        message:
+          type: "string"
+          example: "L'utilisateur 1 a été retiré de la campagne 1."
+  BadRequestResponse:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        example:
+          - "Les champs 'campaign_id' et 'user_id' sont obligatoires"
+          - "Formulaire incorrect"
+responses:
+  200:
+    description: "Successful response"
+    schema:
+      $ref: "#/definitions/RemoveUserCampaignResponse"
+  400:
+    description: "Bad Request"
+    schema:
+      $ref: "#/definitions/BadRequestResponse"
+  500:
+    description: "Internal Server Error"
+    schema:
+      type: "object"
+      properties:
+        error:
+          type: "string"
+          example: "Erreur interne du serveur"
+

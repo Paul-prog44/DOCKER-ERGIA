@@ -1,0 +1,67 @@
+tags:
+  - "Authentification"
+parameters:
+  - in: "body"
+    name: "body"
+    description: "Inscrit un utilisateur"
+    required: true
+    schema:
+      $ref: "#/definitions/RegisterRequest"
+definitions:
+  RegisterRequest:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        example: "test@example.com"
+      password:
+        type: "string"
+        example: "Password123!"
+      firstname:
+        type: "string"
+        example: "Robin"
+      lastname:
+        type: "string"
+        example: "Castel"
+  RegisterResponse:
+    type: "object"
+    properties:
+        user_id:
+          type: "integer"
+          example: 1
+  BadRequestResponse:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        example:
+          - "Mot de passe invalide (Taille min. 8 caractères, au moins 1 chiffre, 1 lettre, 1 majuscule, 1 caractère spécial.)"
+          - "Format du mail invalide"
+  ConflictResponse:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        example:
+          - "L'email est déjà utilisé"
+responses:
+  200:
+    description: "Successful response"
+    schema:
+      $ref: "#/definitions/LoginResponse"
+  400:
+    description: "Bad Request"
+    schema:
+      $ref: "#/definitions/BadRequestResponse"
+  409:
+    description: "Conflict"
+    schema:
+      $ref: "#/definitions/ConflictResponse"
+  500:
+    description: "Internal Server Error"
+    schema:
+      type: "object"
+      properties:
+        error:
+          type: "string"
+          example: "Erreur interne du serveur"
