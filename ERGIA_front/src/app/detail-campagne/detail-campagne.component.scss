@@ -1,0 +1,182 @@
+main {
+  background-color: #EFF5FB;
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden; /* Empêche tout débordement, horizontal et vertical */
+}
+
+.arbo-container {
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 75vw;
+  height: 80%;
+  margin: auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.title-container {
+  width: 100%;
+  height: 10%;
+  padding: 1rem;
+  border-bottom: 1px solid #E0E0E0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1px;
+  color: #333;
+}
+
+.body-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 85%;
+  overflow: hidden;
+}
+
+.details-container {
+  display: flex;
+  width: 30%;
+  height: 100%;
+  flex-direction: column;
+  border-right: 1px solid #E0E0E0;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+button {
+  width: 100%;
+  height: 40px;
+  background-color: #5D737E;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+}
+
+button:hover {
+  background-color: #4A5F68;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #3A4D55;
+  transform: scale(0.95);
+}
+
+.details-campagne p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.right-body-container {
+  width: 70%;
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Empêche le scroll vertical et horizontal */
+}
+
+.arbo-button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #E0E0E0;
+  color: #333;
+  text-align: left;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.arbo-button:hover {
+  background-color: #D6D6D6;
+}
+
+.arbo-button:focus {
+  outline: none;
+}
+
+.joinCampaign {
+  margin-top: 2rem; /* Ajoute un espacement au-dessus */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centre le contenu horizontalement */
+  gap: 1rem; /* Espacement entre les éléments internes */
+  padding: 1rem; /* Espacement interne */
+}
+
+.btn-leave-campaign {
+  background-color: #CA537D;
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Augmente la taille pour le rendre plus accessible */
+  border-radius: 6px;
+  font-size: 16px; /* Augmente légèrement la taille du texte */
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Ajoute une transition pour les effets */
+  margin-top: 1rem; /* Ajoute un espacement au-dessus */
+}
+
+.btn-leave-campaign:hover {
+  background-color: #b04870; /* Change légèrement la couleur */
+  transform: scale(1.05); /* Effet de zoom au survol */
+}
+
+.btn-leave-campaign:active {
+  background-color: #9e3f62;
+  transform: scale(0.95); /* Réduction légère à l'appui */
+}
+
+
+.dejaInscrit {
+  font-size: 1.2rem;
+  color: #4CAF50;
+  font-weight: bold;
+  background-color: #f0fdf4;
+  border: 1px solid #4CAF50;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 0 auto; /* Centre horizontalement l'élément */
+  text-align: center;
+}
+
+
+p {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box; /* Assure que les marges et paddings n'affectent pas les dimensions */
+}

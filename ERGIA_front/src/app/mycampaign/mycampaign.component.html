@@ -1,0 +1,71 @@
+<main>
+  <div class="container">
+    <!-- Recherche -->
+    <form [formGroup]="searchForm" (ngSubmit)="searchCampaigns()" class="search-form">
+      <input
+        formControlName="searchInput"
+        type="text"
+        placeholder="Rechercher une campagne..."
+        class="search-input"
+      />
+      <button type="submit" class="search-button">Rechercher</button>
+    </form>
+
+    <!-- Liste des campagnes -->
+    <div *ngIf="campaigns.length > 0; else noCampaigns" class="campaign-list">
+      <h2>Mes campagnes</h2>
+      <ul>
+        <li *ngFor="let campaign of campaigns; trackBy: trackByCampaignId" class="campaign-item">
+          <div>
+            <h3 class="campaign-title">{{ campaign.name || 'Nom indisponible' }}</h3>
+            <p><strong>Date de création:</strong> {{ campaign.creation_date }}</p>
+            <p><strong>Statut actuel:</strong> {{ campaign.status }}</p>
+            <!-- Boutons pour gérer les statuts -->
+            <div class="status-buttons">
+              <button 
+                *ngIf="campaign.status_id === 2" 
+                (click)="manageCampaignStatus(campaign, 'startPhase1')">
+                Démarrer Phase 1
+              </button>
+              <button 
+                *ngIf="campaign.status_id === 3" 
+                (click)="manageCampaignStatus(campaign, 'endPhase1')">
+                Terminer Phase 1
+              </button>
+              <button 
+                *ngIf="campaign.status_id === 4" 
+                (click)="manageCampaignStatus(campaign, 'startPhase2')">
+                Démarrer Phase 2
+              </button>
+              <button 
+                *ngIf="campaign.status_id === 5" 
+                (click)="manageCampaignStatus(campaign, 'endPhase2')">
+                Terminer Phase 2
+              </button>
+            </div>
+            <!-- Bouton pour afficher les détails -->
+            <button 
+              (click)="loadCampaignDetails(campaign.id_campaign)" 
+              class="details-button">
+              Afficher les détails
+            </button>
+          </div>
+
+          <!-- Détails de la campagne sélectionnée -->
+          <div *ngIf="isCampaignSelected(campaign.id_campaign)" class="campaign-details">
+            <h3>Détails de la campagne : {{ selectedCampaign.name }}</h3>
+            <p><strong>Date de création:</strong> {{ selectedCampaign.creationDate }}</p>
+            <p><strong>Date de la phase 1:</strong> {{ selectedCampaign.phase1Date }}</p>
+            <p><strong>Date de la phase 2:</strong> {{ selectedCampaign.phase2Date }}</p>
+            <p><strong>Statut:</strong> {{ getStatusText(selectedCampaign.statusId) }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Message si aucune campagne -->
+    <ng-template #noCampaigns>
+      <p>Aucune campagne trouvée.</p>
+    </ng-template>
+  </div>
+</main>

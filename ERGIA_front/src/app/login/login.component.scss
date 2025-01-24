@@ -1,0 +1,106 @@
+main {
+    height: 85vh;
+    display: flex;
+    background-color: #EFF5FB;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.login-container {
+    width: 300px;
+    margin: auto;
+    padding: 10px;
+    box-shadow: -10px 5px 5px #dfe4e9;    
+    border-radius: 8px;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+}
+
+form input {
+    display: block;
+    width: 100%;
+    margin: 15px 0; // Correction : Espacement vertical uniquement
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="email"]::placeholder {
+    color: #999;          // Couleur du texte du placeholder
+    font-size: 14px;      // Taille de la police du placeholder
+    font-style: italic;   // Style optionnel pour distinguer le placeholder
+}
+
+form input[type="password"]::placeholder {
+    color: #999;
+    font-size: 14px;
+    font-style: italic;
+}
+
+form button {
+    padding: 12px 25px;
+    background-color: #5A9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+form button:hover {
+    background-color: #489;
+}
+
+.form-links {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    gap: 20px; /* Ajoute un espacement entre les liens */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form-links a {
+    font-size: 12px;
+    color: #5A9;
+    text-decoration: none;
+    margin: 0; /* Supprime les marges verticales */
+    text-align: center; /* Assure l'alignement du texte */
+}
+
+.form-links a .btn-create-account {
+    padding: 8px 16px; /* Ajuste les dimensions pour uniformité */
+    font-size: 14px;
+    background-color: #5A9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-links a .btn-create-account:hover {
+    background-color: #489;
+}
+
+
+.form-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+

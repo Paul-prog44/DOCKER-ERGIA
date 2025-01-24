@@ -1,0 +1,186 @@
+/* Variables */
+$primary-color: #5D737E;
+$secondary-color: #EFF5FB;
+$text-color: #333;
+$highlight-color: #FAFAFA;
+$button-hover-color: #CA537D;
+$error-color: #ff6b6b;
+$success-color: #5D737E;
+$font-family: 'Arial', sans-serif;
+
+/* Global Styles */
+body {
+  font-family: $font-family;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  background-color: $secondary-color;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $secondary-color;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.searchForm {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    width: 55%;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    form {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      gap: 20px; /* Espacement entre les champs du formulaire */
+    }
+  
+    button, a {
+      padding: 10px 20px;
+      background-color: #5D737E;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin: 10px;
+      text-align: center;
+    }
+    
+    button:hover, a:hover {
+      background-color: #CA537D;
+      transform: scale(1.05);
+    }
+    
+    a {
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .button-container {
+      display: flex;
+      gap: 10px;
+    }
+}
+
+.campaignDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Ajustez l'espacement entre les lignes */
+}
+
+.campaign-row {
+  display: flex;
+  justify-content: flex-start; /* Les campagnes alignées à gauche */
+  gap: 16px; /* Ajustez l'espacement entre les campagnes */
+}
+
+.campaign-cell {
+  flex: 1 1 auto; /* Les campagnes prennent de la place */
+}
+
+.empty-cell {
+  flex: 1 1 auto; /* Les cellules vides occupent l'espace restant */
+  visibility: hidden; /* Elles n'apparaissent pas visuellement */
+}
+
+.NoCampaignMessage {
+  display: flex;
+  justify-content:a center;
+  align-items: center;
+  text-align: center;
+  height: 80vh;
+  h2 {
+    color: $primary-color;
+    font-size: 1.5rem;
+  }
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  overflow: hidden; /* Empêche l'apparition de la barre de défilement */
+
+  button {
+    padding: 8px 16px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $button-hover-color;
+    }
+  }
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #5D737E;
+  color: white;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-color;
+    transform: scale(1.05);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .searchForm {
+    flex-direction: column;
+    width: 90%;
+
+    form {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  .campaignDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .campaign-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+.campaign-cell {
+    max-width: 100%;
+    min-height: 150px;
+}
+}

@@ -1,0 +1,143 @@
+/* Variables */
+$primary-color: #5D737E;
+$secondary-color: #EFF5FB;
+$text-color: #333;
+$highlight-color: #FAFAFA;
+$button-hover-color: #CA537D;
+$error-color: #ff6b6b;
+$success-color: #5D737E;
+$font-family: 'Arial', sans-serif;
+
+/* Global Styles */
+body {
+  font-family: $font-family;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  background-color: $secondary-color;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-color;
+  flex: 1;
+}
+
+.displayDocs {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px 0;
+}
+
+.textbox {
+  background-color: white;
+  padding: 30px;
+  box-shadow: -15px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  max-width: 45vw;
+  font-size: 15px;
+  color: $text-color;
+}
+
+h2 {
+  width: 45vw;
+  text-align: center;
+  margin-bottom: 20px;
+  color: $primary-color;
+}
+
+.annotationToolbox {
+  position: fixed;
+  bottom: 100px;
+  right: 70px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: -15px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+  color: $text-color;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: $success-color;
+  color: white;
+  margin: 20px;
+  width: 150px;
+}
+
+button:hover {
+  background-color: $button-hover-color;
+  transform: scale(1.05);
+}
+
+.cancel-button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  background-color: red;
+  color: white;
+  margin: 20px;
+  width: 150px;
+}
+
+.cancel-button:hover {
+  background-color: red;
+  transform: scale(1.05);
+}
+
+
+.error-message {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $error-color;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 10px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 3s ease, visibility 3s ease;
+}
+
+.success-message {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $success-color;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .displayDocs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .textbox {
+    max-width: 90vw;
+  }
+
+  .annotationToolbox {
+    bottom: 20px;
+    right: 20px;
+    width: 90%;
+  }
+}

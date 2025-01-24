@@ -1,0 +1,213 @@
+/* Style général pour le body */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+/* Conteneur principal */
+main {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #eff5fb;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Cartes de section */
+.modify-account,
+.change-password {
+  width: 100%;
+  max-width: 800px;
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+}
+
+/* Titre des sections */
+.current-account {
+  margin-bottom: 20px;
+  font-size: 1.4em;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Conteneur pour chaque champ */
+.field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.field-container.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Affichage des champs */
+.field-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.field-display span {
+  flex: 1;
+}
+
+/* Mode édition */
+.edit-mode label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.edit-mode input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Groupement des boutons */
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Boutons spécifiques */
+.edit-button {
+  background-color: #5D737E;
+  color:  white;
+}
+
+.edit-button:hover {
+  background-color: #CA537D;
+}
+
+.cancel-button {
+  background-color: #ff6b6b;
+}
+
+.cancel-button:hover {
+  background-color: #e55454;
+}
+
+.validate-button {
+  background-color: #5D737E;
+  color:  white;
+}
+
+.validate-button:hover {
+  background-color: #CA537D;
+}
+
+.deleteAccountButton {
+  background-color: #FF0000;
+  color: white;
+}
+
+.deleteAccountButton:hover {
+  background-color: #e55454;
+}
+
+.submit-button{
+  background-color: #5D737E;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #CA537D;
+}
+
+/* Formulaires */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Messages */
+.error-message {
+  font-size: 1rem; 
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 10px;
+  opacity: 1; 
+  visibility: visible; 
+  transition: opacity 3s ease, visibility 3s ease; 
+}
+
+.success-message {
+  font-size: 1rem; 
+  font-weight: bold;
+  color: green;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 10px;
+
+}
+
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .modify-account,
+  .change-password {
+    padding: 20px;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

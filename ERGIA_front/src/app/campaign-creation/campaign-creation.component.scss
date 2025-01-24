@@ -1,0 +1,98 @@
+
+.createCampaign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 25px;
+    box-shadow: -10px 5px 5px #bdc2c7;
+    background-color: white;
+    margin: auto;
+    width: 500px;
+    padding: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.dateInput, .nameInput {
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+main {
+    background-color: #EFF5FB;
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #5A9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #478;
+}
+
+p {
+    font-weight: 700;
+}
+
+.formElement {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    font-size: 12px;
+    width: 200px;
+    background-color: #5A9;
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltipLogo {
+    width: 20px;
+    height: 20px;
+}

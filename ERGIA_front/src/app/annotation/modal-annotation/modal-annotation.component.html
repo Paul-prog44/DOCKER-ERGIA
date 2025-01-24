@@ -1,0 +1,28 @@
+<div class="popup-overlay" (click)="closePopup()">
+    <div class="popup-content" (click)="$event.stopPropagation()">
+      <form [formGroup]="addAnnotationForm" (ngSubmit)="handleAddAnnotation()">
+        <h4>Selectionner une scu</h4>
+          <select formControlName="oldScu">
+            @for (annotation of annotations(); track annotation.scu) {
+              <option value="{{annotation.scu}}">{{annotation.scu}}</option>
+            }@empty {
+              <option>Aucune scu</option>
+            }
+          </select>
+        
+        <h4>Créer une scu</h4>
+        <div>
+            <label for="scu">Scu : </label>
+            <input type="text" formControlName="scu">
+        </div>
+        <div>
+            <label for="color">Couleur :</label>
+            <input type="color" formControlName="color" id="colorInput" value="#e66465">
+        </div>
+        <p class="errorMessage">{{errorMessage}}</p>
+        <button type="submit">Enregistrer</button>
+        <button (click)="closePopup()">Annuler</button>
+      </form>
+      
+    </div>
+  </div>

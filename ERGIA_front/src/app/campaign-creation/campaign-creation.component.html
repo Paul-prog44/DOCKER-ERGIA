@@ -1,0 +1,50 @@
+<main>
+    <div class="createCampaign">
+        <h2>Créer une campagne</h2>
+        <form [formGroup]="createCampaignForm" (ngSubmit)="handleSubmit()" enctype="multipart/form-data">
+            <input type="hidden" value="1" formControlName="owner_id"> 
+
+            <input type="hidden" value="2" formControlName="status_id">
+
+            <div class="formElement">
+                <label for="campaign_name">Nom de la campagne :</label>
+                <input formControlName="campaign_name" type="text" class="nameInput">
+            </div>
+
+            <div class="formElement">
+                <label for="corpus">Ajouter un corpus :</label>
+                <div style="display: flex; align-items: center;">
+                    <input type="file" (change)="onFolderSelected($event)" accept=".zip" id="file">
+                    <div class="tooltip">
+                        <img class="tooltipLogo" src="/assets/images/icons8-info.gif" alt="tooltip">
+                        <span class="tooltiptext">
+                            Votre fichier doit être un zip qui contiendra 1 dossier avec autant de sous-dossiers que vous le souhaitez.<br>
+                            Chaque sous-dossier devra contenir le document d'origine et 2 sous-dossiers intitulés :
+                            <ul>
+                                <li>resume_ia</li>
+                                <li>resume_ref</li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formElement">
+                <label for="end_phase_1">Date de fin de la phase 1 :</label>
+                <input type="date" formControlName="date_phase_1" class="dateInput">
+            </div>
+
+            <div class="formElement">
+                <label for="end_phase_2">Date de fin de la phase 2 :</label>
+                <input type="date" formControlName="date_phase_2" class="dateInput">
+            </div>
+
+            @if(errorMessage) {<p class="errorMessage">{{ errorMessage }}</p>}
+
+            <div class="formElement buttonDiv">
+                <button type="submit">Valider</button>
+                <a href="/"><button type="button">Annuler</button></a>
+            </div>
+        </form>
+    </div>
+</main>

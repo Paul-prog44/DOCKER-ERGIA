@@ -1,0 +1,153 @@
+/* Variables */
+$primary-color: #5D737E;
+$secondary-color: #EFF5FB;
+$text-color: #333;
+$highlight-color: #FAFAFA;
+$button-hover-color: #CA537D;
+$error-color: #ff6b6b;
+$success-color: #5D737E;
+$font-family: 'Arial', sans-serif;
+
+/* Global Styles */
+body {
+  font-family: $font-family;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  background-color: $secondary-color;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  background-color: $secondary-color;
+  flex: 1;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* Ombres moins prononcées */
+}
+
+/* Form Styles */
+.search-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px; /* Réduction de la taille */
+  max-width: 300px; /* Réduction de la largeur */
+}
+
+.search-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: $primary-color;
+  color: white;
+  font-size: 16px;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: $button-hover-color;
+  transform: scale(1.1);
+}
+
+/* Campaign List */
+.grid-campaigns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* CSS Grid pour les cartes */
+  gap: 20px;
+}
+
+.campaign-item {
+  padding: 15px;
+  background: $highlight-color;
+  border: 1px solid $primary-color; /* Ajout de bordures harmonisées */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campaign-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.campaign-item h3 {
+  margin: 0 0 5px;
+  color: $primary-color;
+}
+
+.campaign-item p {
+  margin: 0;
+  font-size: 14px;
+  color: $text-color;
+}
+
+/* Status Buttons */
+.status-buttons {
+  display: flex;
+  justify-content: space-between; /* Inverser l'ordre des boutons */
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.details-button {
+  background-color: $primary-color;
+  color: white;
+}
+
+.details-button:hover {
+  background-color: $button-hover-color;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background-color: $primary-color;
+  color: white;
+  cursor: pointer;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

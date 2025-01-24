@@ -1,0 +1,87 @@
+<main>
+  <div class="modify-account">
+    <h2 class="current-account">Vos informations personnelles</h2>
+
+    <div
+      class="field-container"
+      *ngFor="let field of editableFields"
+      [class.disabled]="isEditing && !field.editMode"
+    >
+      <!-- Vue non modifiable -->
+      <p class="field-display" *ngIf="!field.editMode">
+        <span><strong>{{ field.label }} :</strong> {{ field.value }}</span>
+        <button
+          (click)="toggleEditMode(field)"
+          class="edit-button"
+          [disabled]="isEditing"
+        >
+          Modifier
+        </button>
+      </p>
+
+      <!-- Mode d'édition -->
+      <div *ngIf="field.editMode" class="edit-mode">
+        <label [for]="field.key">{{ field.label }}</label>
+        <input [type]="field.type" [(ngModel)]="field.value" [id]="field.key" />
+        <div class="button-group">
+          <button
+            (click)="toggleEditMode(field, true)"
+            class="validate-button"
+          >
+            Valider
+          </button>
+          <button
+            (click)="toggleEditMode(field)"
+            class="cancel-button"
+          >
+            Annuler
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="deleteAccountButton"
+      (click)="confirmationDeleteAccount()"
+    >
+      Supprimer mon compte
+    </button>
+  </div>
+
+  <div class="change-password">
+    <h2>Changer le mot de passe</h2>
+    <form (ngSubmit)="saveChanges()" #passwordForm="ngForm">
+      <div class="form-group">
+        <label for="currentPassword">Mot de passe actuel :</label>
+        <input
+          type="password"
+          id="currentPassword"
+          [(ngModel)]="passwordData.currentPassword"
+          name="currentPassword"
+        />
+      </div>
+      <div class="form-group">
+        <label for="newPassword">Nouveau mot de passe :</label>
+        <input
+          type="password"
+          id="newPassword"
+          [(ngModel)]="passwordData.newPassword"
+          name="newPassword"
+        />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirmer le nouveau mot de passe :</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          [(ngModel)]="passwordData.confirmPassword"
+          name="confirmPassword"
+        />
+      </div>
+      <button type="submit" class="submit-button">Enregistrer les modifications</button>
+    </form>
+  </div>
+
+  <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+  <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+</main>

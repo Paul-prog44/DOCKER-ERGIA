@@ -1,0 +1,10 @@
+<div class="campaignCard">
+    <div class="campaignInfo">
+        <h3>{{campaign.name}}</h3>
+        <h4>Fin de la phase 1 :</h4>
+        <p> {{campaign.date_phase_1 | date:'dd/MM/yyyy' }}</p>
+        <h4>Fin de la phase 2 :</h4>
+        <p> {{campaign.date_phase_2 | date:'dd/MM/yyyy' }}</p>
+    </div>
+    <button routerLink="/campagne/{{campaign.id_campaign}}">Consulter</button>
+</div>

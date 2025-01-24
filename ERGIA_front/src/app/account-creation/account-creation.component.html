@@ -1,0 +1,35 @@
+<main>
+    <div class="account-creation-container">
+        <h2>Créer un compte</h2>
+        <form [formGroup]="accountCreationForm" (ngSubmit)="handleSubmit()">
+
+            <label for="firstname">Prénom :</label>
+            <input type="text" formControlName="firstname" required>
+
+            <label for="lastname">Nom de famille :</label>
+            <input type="text" formControlName="lastname" required>
+          
+          
+            <label for="email">Adresse mail :</label>
+            <input type="email" formControlName="email" required>
+            
+            <label for="password">Mot de passe :</label>
+            <input type="password" formControlName="password" required>
+
+            <label for="passwordConfirmation">Confirmation du mot de passe :</label>
+            <input type="password" formControlName="passwordConfirmation" required>
+
+            <label for="acceptCgu" class="labelCgu">J'accepte les 
+                <a routerLink="/cgu">conditions générales d'utilisation</a> 
+                <input type="checkbox" formControlName="acceptCgu">
+            </label>
+            
+            
+            @if (errorMessage) { <p class="errorMessage">{{errorMessage}}</p> }
+            <div class="buttons">
+                <button type="submit">Valider</button>
+                <a href="/"><button type="button">Annuler</button></a>
+            </div>
+        </form>
+    </div>
+  </main>

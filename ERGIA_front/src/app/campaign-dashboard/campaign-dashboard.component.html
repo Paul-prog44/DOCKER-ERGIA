@@ -1,0 +1,32 @@
+<main>
+  <div class="searchForm">
+    <form [formGroup]="searchForm" (ngSubmit)="handleSubmit()">
+      <label for="searchInput">Rechercher une campagne </label>
+      <input type="email" formControlName="searchInput" placeholder="Entrer un nom">
+      <button type="submit">Chercher</button>
+    </form>
+    <div class="button-container">
+      <button><a routerLink="/createCampaign">Créer une campagne</a></button>
+      <button (click)="handleLookCampaign()">Campagne dont vous êtes annotateur</button>
+    </div>
+  </div>
+  <p *ngIf="message" class="importantMessage">{{ message }}</p>
+  <div *ngIf="campaigns && campaigns.length > 0; else noCampaigns">
+    <div class="campaignDisplay">
+      <div class="campaign-row" *ngFor="let row of getCampaignRows()">
+        <div class="campaign-cell" *ngFor="let campaign of row">
+          <app-campaign-card *ngIf="campaign" [campaign]="campaign"></app-campaign-card>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <!-- Pagination logique -->
+      <button *ngFor="let page of pagination" (click)="changePage(page)">{{ page }}</button>
+    </div>
+  </div>
+  <ng-template #noCampaigns>
+    <div class="NoCampaignMessage">
+      <h2>Vous n'avez pas de campagne en cours</h2>
+    </div>
+  </ng-template>
+</main>

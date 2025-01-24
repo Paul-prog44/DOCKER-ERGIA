@@ -1,0 +1,52 @@
+<main>
+  <div class="container">
+    <div class="success-message" *ngIf="!isJoined()">
+      <p>Vous êtes bien inscrit à cette campagne.</p>
+    </div>
+    <div class="title-container">
+      <h1>{{this.nomCampagne}}</h1>
+    </div>
+    <div class="joinCampaign">
+      <div *ngIf="!isJoined(); else alreadyJoined">
+        <button (click)="joinCampaign()">Rejoindre la campagne</button>
+      </div>
+      <ng-template #alreadyJoined>
+        <div class="dejaInscrit">
+          <p> Vous êtes bien inscrit à cette campagne !</p>
+        </div>
+        <button class="btn-leave-campaign" (click)="leaveCampaign()">Quitter la campagne</button>
+      </ng-template>
+    </div>
+    <div class="body-container">
+      <div class="details-container">
+        <div class="buttons">
+          <button (click)="selectedTab = 'arbo'">Voir le corpus</button>
+          <button *ngIf="isJoined()" (click)="selectedTab = 'myDocs'">Voir mes docs à annoter</button>
+        </div>
+        <div class="details-campagne">
+          <h4>Date de fin de la phase 1 :</h4>
+          <p> {{this.datePhase1}}</p>
+          <h4>Date de fin de la phase 2 :</h4>
+          <p>{{this.datePhase2}}</p>
+        </div>
+      </div>
+      <div class="right-body-container">
+        <div class="arbo-container">
+          <div *ngIf="this.selectedTab==='arbo'">
+            <div *ngFor="let repertoire of originalTexts; let i = index" class="arbo">
+              <div class="arbo-button" (click)="ouvrirRepertoire(i)"><p>{{repertoire.name}}</p></div>
+              <div *ngIf="this.repertoireOuvert === i">
+                <div *ngFor="let fichier of repertoire.summaries">
+                  <a routerLink="/annotation/{{repertoire.idOriginalText}}/{{fichier.id_summary}}" (click)="logFile(fichier)">{{fichier.name}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p *ngIf="this.selectedTab==='myDocs'">
+            Vous verrez vos docs à annoter ici.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

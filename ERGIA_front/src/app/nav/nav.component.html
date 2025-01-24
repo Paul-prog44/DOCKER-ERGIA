@@ -1,0 +1,28 @@
+<header>
+  <div class="titleLeft">
+    <h1>ERGIA</h1>
+  </div>
+  <div class="navCenter">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+    <a routerLink="/campaignDashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="reloadPage($event)">Campagnes</a>
+    <a routerLink="/userAccount" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Mon compte</a>
+    <a routerLink="/annotation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Annotation Page</a>
+    <a routerLink="/mycampaign" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Mes Campagnes</a>
+  </div>  
+  <div class="navRight">
+    <a *ngIf="!isConnect()" routerLink="/login">Se Connecter</a>
+    <button *ngIf="isConnect()" (click)="logout()">Déconnexion</button>
+  </div>
+</header>
+<router-outlet></router-outlet>
+<footer>
+    <div class='footerRight'>
+      2025 &#64;IUTMontreuil
+    </div>
+    <div>
+      <a routerLink="/cgu" class="footerlink">Conditions générales d'utilisation</a>
+    </div>
+    <div class='footerLeft'>
+      Twitter
+    </div>
+</footer>

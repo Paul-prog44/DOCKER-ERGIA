@@ -1,0 +1,57 @@
+main {
+    height: 85vh;
+    display: flex;
+    background-color: #EFF5FB;
+}
+
+.account-creation-container{
+    width: 300px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: -10px 5px 5px #bdc2c7;    border-radius: 8px;
+    text-align: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label, form input {
+    display: block;
+    margin-bottom: 10px;
+
+}
+
+form input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #5A9;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 300px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    font-weight: 300;
+    text-decoration: underline;
+}
+

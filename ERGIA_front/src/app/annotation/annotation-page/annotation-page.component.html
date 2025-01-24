@@ -1,0 +1,27 @@
+<main>
+    <p>{{errorMessage}}</p>
+    <div class="displayDocs">
+        <div>
+            <h2>Document de référence</h2>
+            <div class="textbox" [innerHTML]="referenceDocument"></div>
+        </div>
+        <div>
+            <h2>Synthèse</h2>
+            @if (annotatedText) {
+                <div class="textbox" [innerHTML]="annotatedText" (mouseup)="getSelectedText()">Synthèse</div>
+            } @else {
+                <div class="textbox" [innerHTML]="resume" (mouseup)="getSelectedText()">Synthèse</div>
+            } 
+            @if (isPopupVisible) {
+                <app-modal-annotation (close)="hidePopup()" [index]="index" [length]="length" [annotations]="annotations" (addAnnotation)="onAddAnnotation($event)"></app-modal-annotation>
+            }
+        </div>
+        <div class="annotationToolbox">
+            <h4>Enregistrer vos annotations</h4>
+            <div>
+                <button (click)="saveAnnotation()">Sauver</button>
+                <button class="cancel-button" (click)="reloadCurrentPage()">Annuler</button>
+            </div>
+        </div>
+    </div>
+</main>
