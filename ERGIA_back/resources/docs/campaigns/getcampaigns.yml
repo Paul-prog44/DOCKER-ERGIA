@@ -1,0 +1,40 @@
+tags:
+  - "Campagnes"
+summary: "Récupérer la liste de toutes les campagnes"
+description: "Cette requête retourne la liste de toutes les campagnes."
+responses:
+  200:
+    description: "Liste récupérée avec succès"
+    schema:
+      type: "array"
+      items:
+        type: "object"
+        properties:
+          creation_date:
+            type: "date"
+            example: "Fri, 15 Mar 2024 00:00:00 GMT"
+          date_phase_1:
+            type: "date"
+            example: "Mon, 15 Apr 2024 00:00:00 GMT"
+          date_phase_2:
+            type: "date"
+            example: "Wed, 15 May 2024 00:00:00 GMT"
+          id_campaign:
+            type: "integer"
+            example: 1
+          name:
+            type: "string"
+            example: "Tech for Good"
+          owner_id:
+            type: "integer"
+            example: 2
+          status_id:
+            type: "integer"
+            example: 1
+  400:
+    description: "Requête invalide"
+  500:
+    description: "Erreur interne du serveur"
+
+
+

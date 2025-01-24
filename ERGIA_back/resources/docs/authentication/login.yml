@@ -1,0 +1,51 @@
+tags:
+  - "Authentification"
+parameters:
+  - in: "body"
+    name: "body"
+    description: "Authentifie un utilisateur"
+    required: true
+    schema:
+      $ref: "#/definitions/LoginRequest"
+definitions:
+  LoginRequest:
+    type: "object"
+    properties:
+      email:
+        type: "string"
+        example: "test@example.com"
+      password:
+        type: "string"
+        example: "Password123!"
+  LoginResponse:
+    type: "object"
+    properties:
+        id:
+          type: "integer"
+          example: 1
+        token:
+          type: "string"
+          example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+  LoginBadRequestResponse:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        example: "Identifiants Incorrects"
+responses:
+  200:
+    description: "Successful response"
+    schema:
+      $ref: "#/definitions/LoginResponse"
+  400:
+    description: "Bad Request"
+    schema:
+      $ref: "#/definitions/LoginBadRequestResponse"
+  500:
+    description: "Internal Server Error"
+    schema:
+      type: "object"
+      properties:
+        error:
+          type: "string"
+          example: "Erreur interne du serveur"

@@ -1,0 +1,62 @@
+tags:
+  - "Campagnes"
+parameters:
+  - in: "body"
+    name: "body"
+    description: "Crée une campagne"
+    required: true
+    schema:
+      $ref: "#/definitions/CampaignCreationRequest"
+definitions:
+  CampaignCreationRequest:
+    type: "object"
+    properties:
+      owner_id:
+        type: "integer"
+        example: "1"
+      date_phase_1:
+        type: "date"
+        example: "21/07/2025"
+      date_phase_2:
+        type: "date"
+        example: "30/08/2025"
+      name:
+        type: "string"
+        example: "Campagne de Robaing"
+      status_id:
+        type: "integer"
+        example: 1
+  CampaignCreationResponse:
+    type: "object"
+    properties:
+        message:
+          type: "string"
+          example: "Campagne créée avec succès"
+  BadRequestResponse:
+    type: "object"
+    properties:
+      error:
+        type: "string"
+        example:
+          - "Aucun fichier n'a été envoyé"
+          - "Seuls les fichiers .zip sont acceptés"
+          - "La date est invalide"
+          - "L'ID est invalide"
+responses:
+  200:
+    description: "Successful response"
+    schema:
+      $ref: "#/definitions/CampaignCreationResponse"
+  400:
+    description: "Bad Request"
+    schema:
+      $ref: "#/definitions/BadRequestResponse"
+  500:
+    description: "Internal Server Error"
+    schema:
+      type: "object"
+      properties:
+        error:
+          type: "string"
+          example: "Erreur interne du serveur"
+
